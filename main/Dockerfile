@@ -8,32 +8,70 @@ ENV PYTHONUNBUFFERED=1 \
     GECKO_BIN=/usr/bin/firefox
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    bat \
+    binutils \
     build-essential \
-    git \
     ca-certificates \
-    curl \
-    wget \
-    unzip \
-    gnupg \
-    lsb-release \
-    libssl-dev \
-    libffi-dev \
-    libpcap-dev \
-    libnss3 \
-    libxss1 \
-    libasound2 \
-    libatk1.0-0 \
-    libatk-bridge2.0-0 \
-    libcups2 \
-    libdrm2 \
-    libxrandr2 \
-    libxcomposite1 \
-    libxdamage1 \
-    libx11-6 \
-    libgtk-3-0 \
     chromium \
     chromium-driver \
+    curl \
+    dnsutils \
+    fd-find \
+    file \
+    fish \
     firefox-esr \
+    git \
+    gnupg \
+    htop \
+    iputils-ping \
+    jq \
+    less \
+    libasound2 \
+    libatk-bridge2.0-0 \
+    libatk1.0-0 \
+    libcups2 \
+    libdrm2 \
+    libffi-dev \
+    libgtk-3-0 \
+    libnss3 \
+    libpcap-dev \
+    libssl-dev \
+    libx11-6 \
+    libxcomposite1 \
+    libxdamage1 \
+    libxrandr2 \
+    libxss1 \
+    lsb-release \
+    lsof \
+    lz4 \
+    moreutils \
+    ncurses-bin \
+    ncurses-term \
+    neovim \
+    netcat-openbsd \
+    nmap \
+    openssl \
+    p7zip-full \
+    parallel \
+    psmisc \
+    pv \
+    rename \
+    ripgrep \
+    rsync \
+    socat \
+    sudo \
+    tcpdump \
+    tmux \
+    traceroute \
+    tree \
+    unar \
+    unzip \
+    vim \
+    wget \
+    whois \
+    zip \
+    zsh \
+    zstd \
     && rm -rf /var/lib/apt/lists/*
 
 RUN <<EOF
