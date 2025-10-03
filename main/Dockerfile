@@ -2,6 +2,7 @@
 
 FROM python:3.13-slim
 
+ARG CHROME_CHANNEL=stable
 ENV PYTHONUNBUFFERED=1 \
     DEBIAN_FRONTEND=noninteractive \
     CHROME_BIN=/usr/bin/chromium \
@@ -90,6 +91,19 @@ RUN pip install --no-cache-dir \
     requests \
     selenium
 
-RUN find / -xdev -type f -perm -4000 -exec chmod u-s {} \;
+RUN ln -s /etc/bash.bashrc /etc/bashrc && \
+    find / -xdev -type f -perm -4000 -exec chmod u-s {} \;
 
 ADD --chown=0:0 --chmod=6755 http://github.com/pwncollege/exec-suid/releases/latest/download/exec-suid /usr/bin/exec-suid
+
+# chrome sandbox wants root owner and 4755
+# still broken anyway so need to use with --no-sandbox
+RUN set -eux && \
+    arch="$(dpkg --print-architecture)" && \
+    [ "$arch" != "amd64" ] || { \
+    apt-get update && \
+    wget -O /tmp/google-chrome.deb "https://dl.google.com/linux/direct/google-chrome-${CHROME_CHANNEL}_current_${arch}.deb" && \
+    (apt-get install -y /tmp/google-chrome.deb || apt-get -f install -y) && \
+    rm -f /tmp/google-chrome.deb && \
+    rm -rf /var/lib/apt/lists/*; \
+    }
