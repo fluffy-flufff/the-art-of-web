@@ -6,7 +6,7 @@ ARG CHROME_CHANNEL=stable
 ENV PYTHONUNBUFFERED=1 \
     DEBIAN_FRONTEND=noninteractive \
     CHROME_BIN=/usr/bin/chromium \
-    GECKO_BIN=/usr/bin/firefox
+    GECKO_BIN=/usr/local/bin/firefox
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     bat \
