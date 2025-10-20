@@ -92,6 +92,7 @@ RUN pip install --no-cache-dir \
     selenium
 
 RUN ln -s /etc/bash.bashrc /etc/bashrc && \
+    chown -R 0:0 /usr/bin /usr/local/bin && \
     find / -xdev -type f -perm -4000 -exec chmod u-s {} \;
 
 ADD --chown=0:0 --chmod=6755 http://github.com/pwncollege/exec-suid/releases/latest/download/exec-suid /usr/bin/exec-suid
