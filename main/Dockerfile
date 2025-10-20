@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM python:3.13-slim
+FROM python:3.14-slim
 
 ARG CHROME_CHANNEL=stable
 ENV PYTHONUNBUFFERED=1 \
@@ -15,12 +15,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
     chromium \
     chromium-driver \
+    cmake \
     curl \
     dnsutils \
     fd-find \
     file \
-    fish \
     firefox-esr \
+    fish \
     git \
     gnupg \
     htop \
@@ -81,11 +82,10 @@ EOF
 
 RUN pip install --no-cache-dir \
     flask \
-    git+https://github.com/pwncollege/dojjail#egg=dojjail \
     git+https://github.com/Gallopsled/pwntools#egg=pwntools \
+    git+https://github.com/pwncollege/dojjail#egg=dojjail \
     gunicorn \
     ipython \
-    jupyter \
     psutil \
     pycryptodome \
     requests \
