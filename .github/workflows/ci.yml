@@ -10,7 +10,7 @@ on:
         type: choice
         description: Image to build and push
         options:
-          - main
+          - web
           - lecture
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
     strategy:
       matrix:
         image:
-          - main
+          - web
           - lecture
 
     steps:
