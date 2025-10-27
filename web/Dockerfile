@@ -3,6 +3,8 @@
 FROM python:3.14-slim
 
 ARG CHROME_CHANNEL=stable
+ARG GECKODRIVER_VER=0.36.0
+
 ENV PYTHONUNBUFFERED=1 \
     DEBIAN_FRONTEND=noninteractive \
     CHROME_BIN=/usr/bin/chromium \
@@ -25,6 +27,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     gnupg \
     htop \
+    iproute2 \
     iputils-ping \
     jq \
     less \
@@ -76,9 +79,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     zstd \
     && rm -rf /var/lib/apt/lists/*
 
-RUN <<EOF
-    wget -q -O - https://github.com/mozilla/geckodriver/releases/download/v0.36.0/geckodriver-v0.36.0-linux64.tar.gz | tar xvz -C /usr/local/bin
-EOF
+RUN wget -q -O - "https://github.com/mozilla/geckodriver/releases/download/v${GECKODRIVER_VER}/geckodriver-v${GECKODRIVER_VER}-$([ \"$(dpkg --print-architecture)\" = \"arm64\" ] && printf '%s' linux-aarch64 || printf '%s' linux64).tar.gz" | tar xz -C /usr/local/bin
 
 RUN pip install --no-cache-dir \
     flask \
