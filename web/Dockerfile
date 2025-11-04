@@ -92,11 +92,16 @@ RUN pip install --no-cache-dir \
     requests \
     selenium
 
+RUN mkdir -p /opt/dos && \
+    chown -R 0:0 /opt/dos
+COPY --chown=0:0 --chmod=755 watchdog /opt/dos/watchdog
+
 RUN ln -s /etc/bash.bashrc /etc/bashrc && \
     chown -R 0:0 /usr/bin /usr/local/bin && \
     find / -xdev -type f -perm -4000 -exec chmod u-s {} \;
 
-ADD --chown=0:0 --chmod=6755 http://github.com/pwncollege/exec-suid/releases/latest/download/exec-suid /usr/bin/exec-suid
+ADD --chown=0:0 --chmod=6755 https://github.com/pwncollege/exec-suid/releases/latest/download/exec-suid /usr/bin/exec-suid
+ADD --chown=0:0 --chmod=6755 https://github.com/pwncollege/exec-suid/releases/download/v0.1.5/exec-suid /opt/exec-suid
 
 # chrome sandbox wants root owner and 4755
 # still broken anyway so need to use with --no-sandbox
