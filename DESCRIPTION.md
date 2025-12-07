@@ -8,4 +8,4 @@ This dojo is for anyone interested in web security, from complete beginners to w
 
 This dojo is open source! Pull requests are appreciated. [Github](https://github.com/snowy-fluff/the-art-of-web).
 
-Questions? Hints? Unintended solves? Need harder challenges? Please contact `Gus`, `RenegadePenguin`, `Snowy` (or `0xFFFFFF`) on `discord`.
+Questions? Hints? Unintended solves? Need harder challenges? Please contact `Gus`, `RenegadePenguin`, `Fluffy` on `discord`.

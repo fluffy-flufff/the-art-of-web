@@ -1,18 +1,18 @@
 name: Web Application Security
 challenges:
-    - id: upstream-betrayal
+    - id: proxy-switch
       name: Upstream Betrayal
-    - id: technical-issues
+    - id: lecture-shell
       name: Technical Issues
       image: pwmcollege/challenge-lecture
       interfaces:
           - name: Challenge
             port: 80
-    - id: professors-podium
+    - id: lecture-reverse-shell
       name: Professor's Podium
       image: pwmcollege/challenge-lecture
       interfaces:
           - name: Challenge
             port: 80
-    - id: secret-whispers
+    - id: csp-misconfig
       name: Secret Whispers
