@@ -92,10 +92,6 @@ RUN pip install --no-cache-dir \
     requests \
     selenium
 
-RUN mkdir -p /opt/dos && \
-    chown -R 0:0 /opt/dos
-COPY --chown=0:0 --chmod=755 watchdog /opt/dos/watchdog
-
 RUN ln -s /etc/bash.bashrc /etc/bashrc && \
     chown -R 0:0 /usr/bin /usr/local/bin && \
     find / -xdev -type f -perm -4000 -exec chmod u-s {} \;
