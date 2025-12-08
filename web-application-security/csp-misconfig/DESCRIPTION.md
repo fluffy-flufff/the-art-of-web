@@ -1,7 +1,3 @@
-Welcome to *Secret Whispers*, the totally-not-sketchy anonymous message service!
+Our Content Security Policy is second to none! We generate cryptographically secure nonces for every request. Totally unpredictable. Definitely random.
 
-Got secrets? We've got base64! Our state-of-the-art encryption technology lets you send your morally questionable messages without worrying about someone eavesdropping on them.
-
-Feeling paranoid about a message? Our very real, definitely-human admin will personally review it for you! They're super dedicated and will click on literally anything you send them.
-
-Send your secrets today!
+The admin bot loves visiting user-submitted links. Maybe send them something interesting? 🍪
